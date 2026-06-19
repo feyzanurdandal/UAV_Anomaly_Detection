@@ -8,9 +8,9 @@ import plotly.express as px
 # ==========================================================================================
 # 1. SAYFA AYARLARI VE KURUMSAL TEMA
 # ==========================================================================================
-nn_st.set_page_config(page_title="AVERTİA - Otonom Teşhis Motoru", page_icon="🛡️", layout="wide")
+nn_st.set_page_config(page_title="UAV Anomali Tespit", layout="wide")
 
-nn_st.title("🛸 AVERTİA - Otomatik Tehdit Teşhisli İHA Siber Savunma Sistemi (IDS)")
+nn_st.title(" UAV Anomalisi Otonom Tespit Motoru ")
 nn_st.markdown("""
     **Esnek Matris Entegrasyonlu Otonom Koruma:** Yüklediğiniz uçuş logunun kolon yapısı taranır ve 
     en yüksek benzerlik/ihlal gösteren siber tehdit senaryosu otomatik olarak teşhis edilir.
@@ -74,7 +74,7 @@ if yuklenen_dosya is not None and threat_matrix:
     # 🕵️ KARAR VE RAPORLAMA KATMANI
     if not gecerli_senaryo_bulundu:
         nn_st.error("❌ VERİ TABANLI UYUMSUZLUK: Yüklediğiniz CSV dosyasındaki kolon isimleri, imza matrisindeki 30 fiziksel parametrenin hiçbiriyle eşleşmedi!")
-        nn_st.warning(f"💡 Tavsiye: Lütfen 8.8 milyon satırlık veriyi birleştirirken elde ettiğin, içinde {list(threat_matrix['External_Position'].keys())[:3]} kolonları olan işlenmiş CSV'yi yükle kanka.")
+        nn_st.warning(f"💡 Tavsiye: Lütfen veriyi birleştirirken elde ettiğin, içinde {list(threat_matrix['External_Position'].keys())[:3]} kolonları olan işlenmiş CSV'yi yükle kanka.")
         nn_st.info(f"📋 Sizin dosyanızdaki kolonlar: {list(df.columns)[:8]}")
     else:
         # En yüksek lekelenme oranına göre otomatik teşhis koy
