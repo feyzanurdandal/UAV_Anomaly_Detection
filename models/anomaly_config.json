@@ -1,0 +1,77 @@
+{
+    "project_metadata": {
+        "project_name": "UAV Anomaly Detection Framework",
+        "version": "1.0.0",
+        "framework": "PyTorch & Pearsons/Standard Distribution Analysis",
+        "target_model_weights": "uav_autoencoder_v1.pth",
+        "input_dimension": 30,
+        "documentation_culture": "Clean Architecture"
+    },
+    "global_bounds": {
+        "normal_flight_baseline_loss": 0.035,
+        "absolute_clipping_lower_bound": 0.05
+    },
+    "anomaly_categories": {
+        "External_Position": {
+            "threat_type": "Cyber Attack",
+            "sub_class": "GPS Spoofing / Location Manipulation",
+            "description": "Dış kaynaklı sahte GPS sinyalleri ile İHA'nın yatay düzlemdeki rota ve koordinat verilerinin manipüle edilmesi.",
+            "metrics": {
+                "mean_reconstruction_loss": 0.331763,
+                "standard_deviation": 0.291344,
+                "maximum_peak_loss": 2.508717
+            },
+            "security_policy": {
+                "calculated_threshold": 0.186091,
+                "applied_mitigation_threshold": 0.186091,
+                "alarm_severity": "CRITICAL"
+            }
+        },
+        "Global_Position": {
+            "threat_type": "Cyber Attack / Electronic Warfare",
+            "sub_class": "GPS Jamming / Signal Loss",
+            "description": "Elektronik harp veya sinyal kesiciler vasıtasıyla GPS bağlantısının tamamen koparılması. Yüksek varyanslı gürültü içerir.",
+            "metrics": {
+                "mean_reconstruction_loss": 0.383529,
+                "standard_deviation": 0.792052,
+                "maximum_peak_loss": 8.042128
+            },
+            "security_policy": {
+                "calculated_threshold": -0.012497,
+                "applied_mitigation_threshold": 0.05,
+                "alarm_severity": "HIGH",
+                "note": "Matematiksel eşik negatif değere düştüğü için absolute_clipping_lower_bound (0.05) güvenlik politikası olarak atanmıştır."
+            }
+        },
+        "Altitude": {
+            "threat_type": "Cyber Attack / Sensor Defect",
+            "sub_class": "Barometer Manipulation / Altitude Attack",
+            "description": "Barometrik basınç ve irtifa sensörlerine yönelik siber sızma veya ani dikey eksen veri manipülasyonu.",
+            "metrics": {
+                "mean_reconstruction_loss": 0.40648,
+                "standard_deviation": 0.749366,
+                "maximum_peak_loss": 9.917249
+            },
+            "security_policy": {
+                "calculated_threshold": 0.031797,
+                "applied_mitigation_threshold": 0.031797,
+                "alarm_severity": "CRITICAL"
+            }
+        },
+        "Mechanical": {
+            "threat_type": "Hardware Failure",
+            "sub_class": "Actuator / Motor / Control Surface Malfunction",
+            "description": "İHA'nın motor, pervane veya servo kanatçıklarında meydana gelen fiziksel/donanımsal kilitlenmeler ve arızalar.",
+            "metrics": {
+                "mean_reconstruction_loss": 0.347844,
+                "standard_deviation": 0.388216,
+                "maximum_peak_loss": 45.337944
+            },
+            "security_policy": {
+                "calculated_threshold": 0.153735,
+                "applied_mitigation_threshold": 0.153735,
+                "alarm_severity": "EMERGENCY"
+            }
+        }
+    }
+}
