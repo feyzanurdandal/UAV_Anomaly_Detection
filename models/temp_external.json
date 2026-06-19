@@ -1,0 +1,122 @@
+{
+    "gyro_rad[0]": {
+        "safe_min": -0.485454,
+        "safe_max": 0.485392
+    },
+    "gyro_rad[1]": {
+        "safe_min": -0.419572,
+        "safe_max": 0.419449
+    },
+    "gyro_rad[2]": {
+        "safe_min": -0.253523,
+        "safe_max": 0.255397
+    },
+    "accelerometer_m_s2[0]": {
+        "safe_min": -4.504239,
+        "safe_max": 4.466051
+    },
+    "accelerometer_m_s2[1]": {
+        "safe_min": -4.742057,
+        "safe_max": 4.71805
+    },
+    "accelerometer_m_s2[2]": {
+        "safe_min": -15.314385,
+        "safe_max": -4.240608
+    },
+    "baro_alt_meter": {
+        "safe_min": -18.713764,
+        "safe_max": 155.580432
+    },
+    "baro_pressure_pa": {
+        "safe_min": 99398.042691,
+        "safe_max": 101883.434947
+    },
+    "baro_temp_celcius": {
+        "safe_min": 41.638186,
+        "safe_max": 57.224865
+    },
+    "q[0]": {
+        "safe_min": -0.211861,
+        "safe_max": 1.359266
+    },
+    "q[1]": {
+        "safe_min": -0.079508,
+        "safe_max": 0.084654
+    },
+    "q[2]": {
+        "safe_min": -0.069183,
+        "safe_max": 0.079286
+    },
+    "q[3]": {
+        "safe_min": -0.331708,
+        "safe_max": 1.433859
+    },
+    "output[0]": {
+        "safe_min": 1265.425096,
+        "safe_max": 1777.823309
+    },
+    "output[1]": {
+        "safe_min": 1260.007304,
+        "safe_max": 1786.30658
+    },
+    "output[2]": {
+        "safe_min": 1283.369242,
+        "safe_max": 1742.025892
+    },
+    "output[3]": {
+        "safe_min": 1271.675156,
+        "safe_max": 1750.452565
+    },
+    "output[4]": {
+        "safe_min": -981.312234,
+        "safe_max": 1630.693078
+    },
+    "output[5]": {
+        "safe_min": -986.134176,
+        "safe_max": 1638.697304
+    },
+    "output[6]": {
+        "safe_min": -918.269474,
+        "safe_max": 1435.951682
+    },
+    "output[7]": {
+        "safe_min": -925.608389,
+        "safe_max": 1447.028008
+    },
+    "x": {
+        "safe_min": -7.339597,
+        "safe_max": 6.311628
+    },
+    "y": {
+        "safe_min": -7.306664,
+        "safe_max": 8.469696
+    },
+    "z": {
+        "safe_min": -9.839485,
+        "safe_max": 5.735415
+    },
+    "vx": {
+        "safe_min": -7.015305,
+        "safe_max": 6.777612
+    },
+    "vy": {
+        "safe_min": -11.930406,
+        "safe_max": 11.010773
+    },
+    "vz": {
+        "safe_min": -0.496333,
+        "safe_max": 0.518841
+    },
+    "ax": {
+        "safe_min": -2.644549,
+        "safe_max": 2.633792
+    },
+    "ay": {
+        "safe_min": -2.681554,
+        "safe_max": 2.663908
+    },
+    "az": {
+        "safe_min": -2.932602,
+        "safe_max": 2.936216
+    }
+}
