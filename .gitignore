@@ -1,21 +1,20 @@
-# Python önbellek dosyaları
+
+# Devasa Veri Havuzları (Büyük Veriler Drive'da Saklanacak)
+data/raw/
+data/processed/aligned_flights/
+data/processed/attack_master_pool/
+data/processed/cleaned_train/
+data/processed/attack_categories/
+
+# PyTorch ve Python Önbellekleri
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
 
-# Sanal ortam klasörleri (kullanıyorsan)
-.venv/
-venv/
-env/
-
-# JUPYTER NOTEBOOK ÖNBELLEKLERİ
+# Sanal Ortam ve IDE Yapılandırmaları
 .ipynb_checkpoints/
-
-# VERİLERİ REPOYA ALMIYORUZ
-data/raw/
-data/processed/
-*.csv
-*.ulg
-
-# IDE Ayarları
 .vscode/
 .idea/
+uav_anomaly/
