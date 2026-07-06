@@ -1,5 +1,5 @@
 
-# Devasa Veri Havuzları (Büyük Veriler Drive'da Saklanacak)
+#Büyük Veriler Drive'da Saklanacak
 data/raw/
 data/processed/aligned_flights/
 data/processed/attack_master_pool/
