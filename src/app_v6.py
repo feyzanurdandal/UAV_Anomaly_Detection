@@ -89,6 +89,12 @@ if secilen_dosya:
     ax.plot(mse_tam, color='#2ca02c', label='MSE Loss')
     ax.axhline(y=esik_deger, color='red', linestyle='--', label='Eşik')
     st.pyplot(fig)
+    st.subheader("🔗 Sensör Korelasyon Analizi")
+    import seaborn as sns
+    corr = df_flight[sensor_cols].corr()
+    fig_corr, ax_corr = plt.subplots(figsize=(8, 6))
+    sns.heatmap(corr, annot=False, cmap='coolwarm', ax=ax_corr)
+    st.pyplot(fig_corr)
     plt.close(fig)
 
 # CANLI AKIŞ
