@@ -5,6 +5,7 @@ data/processed/aligned_flights/
 data/processed/attack_master_pool/
 data/processed/cleaned_train/
 data/processed/attack_categories/
+data/processed/backup_inconsistent/
 
 # PyTorch ve Python Önbellekleri
 __pycache__/
