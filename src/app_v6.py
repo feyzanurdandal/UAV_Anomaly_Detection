@@ -10,10 +10,7 @@ import json
 import statistics
 from captum.attr import IntegratedGradients
 
-# ==========================================================================================
-# ⚙️ AYARLAR
-# ==========================================================================================
-st.set_page_config(page_title="AVERTİA Teşhis", layout="wide")
+st.set_page_config(page_title="UAV Anomali Tespit", layout="wide")
 ATTACK_POOL_DIR = r"C:\Users\feyza\Desktop\uav_project\data\processed\attack_master_pool"
 MODELS_DIR = r"C:\Users\feyza\Desktop\uav_project\models"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -56,7 +53,7 @@ def forward_func(inputs, model):
     return torch.mean((model(inputs) - inputs) ** 2, dim=[1, 2])
 
 # ARAYÜZ
-st.title("AVERTİA: Otonom Siber Atak Teşhis Merkezi")
+st.title("UAV Telemetrisinde Çoklu Sensör Tutarlılığına Dayalı Anomali Tespiti ve Hata Tanımlama")
 st.sidebar.header("Görev Seçimi")
 kategori = st.sidebar.selectbox("Kategori", ["External_Position", "Altitude", "Global_Position", "Mechanical"])
 
@@ -107,7 +104,7 @@ if start_btn:
     st.markdown("---")
     st.subheader("⚠️ Kök Neden Analizi ve Teşhis")
     bar_chart_area = st.empty()
-    diagnosis_area = st.empty() # TEŞHİS ALANI TANIMLANDI
+    diagnosis_area = st.empty()
     
     loss_history,step_history, teshis_gecmisi = [], [],[]
     
