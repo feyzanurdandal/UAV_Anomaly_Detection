@@ -1,13 +1,19 @@
 # Kurulum: pip install -r requirements.txt
+# Not: torch/torchvision/torchaudio için CUDA'ya özel derleme (+cu121) burada PİN'lenmedi,
+# çünkü PyPI üzerinden farklı bir CUDA sürümüne veya CPU'ya sahip bir makinede
+# bu satır "no matching distribution" hatasıyla kurulumu
+# tamamen durdurur. GPU ile hızlandırma istenirse aşağıdaki komutla ayrıca kurulabilir:
+#   pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 streamlit==1.58.0
 pandas==2.3.3
 numpy==1.26.4
-torch==2.5.1+cu121
-torchvision==0.20.1+cu121
-torchaudio==2.5.1+cu121
+torch==2.5.1
+torchvision==0.20.1
+torchaudio==2.5.1
 captum==0.9.0
 scikit-learn==1.7.2
 matplotlib==3.10.9
+seaborn==0.13.2
 plotly==6.8.0
 pyulog==1.2.2
 huggingface_hub==1.19.0

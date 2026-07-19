@@ -2,8 +2,9 @@ import os
 import subprocess
 from glob import glob
 
-# convert_all_ulogs2.py içindeki base_dir satırını geçici olarak böyle yap:
-base_dir = r"C:\Users\feyza\UAV_Anomaly_Project\data\raw\uav_sead"
+from config import RAW_ULOG_DIR
+
+base_dir = str(RAW_ULOG_DIR)
 
 print(f"Aranacak Ana Klasör: {base_dir}")
 print("Dönüştürme işlemi başlatılıyor... Bu işlem veri boyutuna göre vakit alabilir.")
@@ -20,7 +21,7 @@ for index, ulog_path in enumerate(ulog_files, 1):
     file_dir = os.path.dirname(ulog_path)
     file_name = os.path.basename(ulog_path)
     
-    # Akıllı Kontrol: Aynı isimde .csv dosyası varsa atla
+    # Aynı isimde .csv dosyası varsa atla
     base_name_without_ext = os.path.splitext(file_name)[0]
     already_converted = glob(os.path.join(file_dir, f"{base_name_without_ext}*.csv"))
     

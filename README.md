@@ -26,8 +26,10 @@ Projenin ihtiyaç duyduğu büyük ölçekli uçuş logları ve atak havuzları,
    ```bash
    pip install -r requirements.txt
    ```
-2. `models/` klasöründe eğitilmiş model ağırlıklarının (`hybrid_model.pth`, `global_scaler.pkl`) bulunduğundan emin olun.
-3. Uygulamayı çalıştırın:
+   GPU ile hızlandırma istiyorsanız `requirements.txt` üstündeki notta belirtilen CUDA'ya özel torch kurulum komutunu ayrıca çalıştırın.
+2. `models/` klasöründe eğitilmiş model ağırlıklarının (`hybrid_model.pth`, `global_scaler.pkl`, `thresholds.json`) bulunduğundan emin olun.
+3. Tüm yol tanımlamaları `src/config.py` üzerinden proje kök klasörüne göre otomatik hesaplanır — proje klasörünü nereye kopyalarsanız kopyalayın ekstra bir ayar gerekmez. Veri/model klasörlerinizi standart yapının dışında bir yerde tutuyorsanız `UAV_PROJECT_ROOT`, `UAV_MODELS_DIR`, `UAV_DATA_DIR` ortam değişkenleriyle override edebilirsiniz.
+4. Uygulamayı proje kök dizininden çalıştırın:
    ```bash
    streamlit run src/app.py
    ```

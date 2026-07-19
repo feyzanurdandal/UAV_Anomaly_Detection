@@ -5,12 +5,12 @@ import pandas as pd
 import pickle
 import json
 
-# BURAYI KENDİ YOLLARINA GÖRE GÜNCELLE
-MODELS_DIR = r"C:\Users\feyza\Desktop\uav_project\models"
-TRAIN_DATA_DIR = r"C:\Users\feyza\Desktop\uav_project\data\processed\aligned_flights"
+from config import MODELS_DIR, ALIGNED_FLIGHTS_DIR, SCALER_PATH, MODEL_WEIGHTS_PATH, THRESHOLDS_PATH, check_paths
+
+TRAIN_DATA_DIR = ALIGNED_FLIGHTS_DIR
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Modelin 17 kolonlu verilerinle uyumlu olması için input_dim'i 17 yapıyoruz
+
 class UAVHybridAutoencoder(torch.nn.Module):
     def __init__(self, input_dim=17, window_size=10):
         super(UAVHybridAutoencoder, self).__init__()
@@ -36,23 +36,20 @@ class UAVHybridAutoencoder(torch.nn.Module):
         return final_out
 
 def calculate_thresholds():
-    with open(os.path.join(MODELS_DIR, "global_scaler.pkl"), "rb") as f:
+    check_paths(MODELS_DIR, TRAIN_DATA_DIR)
+    with open(SCALER_PATH, "rb") as f:
         scaler = pickle.load(f)
-    
-    # 1. Modeli 16 girişli orijinal haline döndür
+
     model = UAVHybridAutoencoder(input_dim=16, window_size=10).to(DEVICE)
-    model.load_state_dict(torch.load(os.path.join(MODELS_DIR, "hybrid_model.pth"), map_location=DEVICE, weights_only=True))
+    model.load_state_dict(torch.load(MODEL_WEIGHTS_PATH, map_location=DEVICE, weights_only=True))
     model.eval()
-    
-    # 2. Scaler'daki 17 kolonun arasından ilk 16'sını al (veya modelin eğittiği kolonları seç)
-    # Eğitimde kullandığın 16 kolonun listesi buraya gelecek
+
     tum_kolonlar = list(scaler.feature_names_in_)
-    sensor_cols = tum_kolonlar[:16] # Sadece ilk 16'sını kullanıyoruz
-    
+    sensor_cols = tum_kolonlar[:16]
+
     flight_files = [os.path.join(TRAIN_DATA_DIR, f) for f in os.listdir(TRAIN_DATA_DIR) if f.endswith('.csv')]
     
     all_losses = []
-    # ... (Geri kalan döngü ve hesaplama kısmı aynı) ...
     print(f"Toplam {len(flight_files)} adet uçuş dosyası işleniyor...")
 
     for file in flight_files:
@@ -72,7 +69,7 @@ def calculate_thresholds():
     final_threshold = float(np.mean(all_losses) + 3 * np.std(all_losses))
     
     thresholds = {"Global_Threshold": final_threshold}
-    with open(os.path.join(MODELS_DIR, "thresholds.json"), "w") as f:
+    with open(THRESHOLDS_PATH, "w") as f:
         json.dump(thresholds, f)
         print("BASARILI: Esik degerleri hesaplandi ve kaydedildi!")
 
