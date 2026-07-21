@@ -1,8 +1,13 @@
+
 # UAV Anomali Tespiti Projesi
 Bu proje, İHA'ların uçuş esnasında maruz kalabileceği siber saldırıları ve sensör manipülasyonlarını **CNN-LSTM Hibrit Autoencoder** mimarisi ile gerçek zamanlı olarak tespit eden bir anomali tespit sistemidir.
 
 ## Proje Hakkında
 Sistem, İHA'nın uçuş telemetri verilerini sürekli analiz ederek, normal uçuş karakteristiğinden sapmaları (MSE - Mean Squared Error) milisaniyeler içinde yakalar.
+
+
+
+https://github.com/user-attachments/assets/59698374-4d8c-4fef-90ed-d550d48af29b
 
 ## Ekran Görüntüleri
 ![Statik Uçuş Analizi](assets/statik_analiz.png)
