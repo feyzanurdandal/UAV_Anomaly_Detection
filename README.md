@@ -4,6 +4,13 @@ Bu proje, İHA'ların uçuş esnasında maruz kalabileceği siber saldırıları
 ## Proje Hakkında
 Sistem, İHA'nın uçuş telemetri verilerini sürekli analiz ederek, normal uçuş karakteristiğinden sapmaları (MSE - Mean Squared Error) milisaniyeler içinde yakalar.
 
+## Ekran Görüntüleri
+![Statik Uçuş Analizi](assets/statik_analiz.png)
+*Şekil 1: Statik Uçuş Analizinde Global Eşik Değeri Sınır Analizi*
+
+![Kök Neden Analizi ve Teşhis](assets/kok_neden_analizi.png)
+*Şekil 2: Integrated Gradients Sensör Katkı Payları ve Siber Teşhis Çıktısı*
+
 ### Teknik Yetenekler
 * **Hibrit Mimari:** Uzamsal özellikler için **CNN**, ardışık veriler için **LSTM** katmanları.
 * **Otonom Teşhis:** Siber sapmanın kaynağını otomatik sınıflandırma.
